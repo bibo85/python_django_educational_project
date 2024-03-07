@@ -176,7 +176,7 @@ LOGIN_URL = reverse_lazy("myauth:login")
 LOGLEVEL = getenv("DJANGO_LOGLEVEL", "info").upper()
 
 logging.config.dictConfig({
-    'version:': 1,
+    'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'console': {
@@ -184,8 +184,10 @@ logging.config.dictConfig({
         },
     },
     "handlers": {
-        "console": "logging.StreamHandler",
-        "formatter": "console",
+        "console": {
+            'class': "logging.StreamHandler",
+            "formatter": "console",
+        },
     },
     "loggers": {
         "": {
